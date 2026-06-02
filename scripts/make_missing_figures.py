@@ -10,6 +10,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
+from matplotlib.patches import Ellipse  # noqa: E402
 
 np.random.seed(42)
 assets = Path(__file__).parents[1] / "assets"
@@ -97,4 +98,28 @@ fig.colorbar(im, label="Pearson r")
 ax.set_title("Correlation among faecal parameters")
 save(fig, "F9.png")
 
-print("wrote F3, F6, F7, F8, F9")
+# --- F10: representative faecal coloration plate (stylized clinical reference) ---
+specs = [
+    ("Normal (brown)", "#6b4423"),
+    ("Beetroot (betalain)", "#9b1b30"),
+    ("Blueberry (anthocyanin)", "#5b2a83"),
+    ("Spinach (chlorophyll)", "#3a7d44"),
+    ("Carrot (carotenoid)", "#cc6a16"),
+    ("Azo dye (synthetic)", "#b3186d"),
+]
+fig, axes = plt.subplots(2, 3, figsize=(8.4, 5.4))
+for ax, (label, col) in zip(axes.ravel(), specs):
+    ax.set_xlim(-1.3, 1.3)
+    ax.set_ylim(-0.6, 2.5)
+    ax.set_aspect("equal")
+    ax.axis("off")
+    for w, h, dy in [(1.55, 0.78, 0.0), (1.18, 0.64, 0.56), (0.82, 0.52, 1.02), (0.42, 0.38, 1.40)]:
+        ax.add_patch(Ellipse((0, dy), w, h, facecolor=col, edgecolor="black", lw=1.3, zorder=2))
+        ax.add_patch(Ellipse((-0.16 * w, dy + 0.13 * h), 0.34 * w, 0.30 * h,
+                             facecolor="white", alpha=0.18, edgecolor="none", zorder=3))
+    ax.set_title(label, fontsize=10)
+fig.suptitle("Representative faecal coloration across dietary pigments", fontsize=13)
+fig.tight_layout(rect=(0, 0, 1, 0.96))
+save(fig, "F10.png")
+
+print("wrote F3, F6, F7, F8, F9, F10")
