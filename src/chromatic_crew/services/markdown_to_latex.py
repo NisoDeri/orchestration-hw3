@@ -50,13 +50,13 @@ def _figure(name: str, caption: str) -> str:
     return (
         "\\begin{figure}[h]\\centering\n"
         f"\\includegraphics[width=0.9\\textwidth]{{../assets/{name}.png}}\n"
-        f"\\caption{{{_wrap_he(_inline(caption))}}}\n\\end{{figure}}"
+        f"\\caption{{{_wrap_he(_inline(caption))}}}\\label{{fig:{name}}}\n\\end{{figure}}"
     )
 
 
-def _diagram(tikz: str, caption: str) -> str:
+def _diagram(tikz: str, caption: str, name: str) -> str:
     cap = _wrap_he(_inline(caption))
-    return f"\\begin{{figure}}[h]\\centering\n{tikz}\n\\caption{{{cap}}}\n\\end{{figure}}"
+    return f"\\begin{{figure}}[h]\\centering\n{tikz}\n\\caption{{{cap}}}\\label{{fig:{name}}}\n\\end{{figure}}"
 
 
 def _is_table_start(lines: list[str], i: int) -> bool:
@@ -93,7 +93,7 @@ def convert(md: str, tikz_map: dict[str, str], language: str) -> str:
                 _figure(m.group(1), m.group(2) or m.group(1)) for m in _FIG.finditer(line)
             ]
             floats += [
-                _diagram(tikz_map.get(m.group(1), ""), m.group(2) or m.group(1))
+                _diagram(tikz_map.get(m.group(1), ""), m.group(2) or m.group(1), m.group(1))
                 for m in _DIAG.finditer(line)
             ]
             text = _DIAG.sub("", _FIG.sub("", line))

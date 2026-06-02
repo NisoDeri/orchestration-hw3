@@ -4,7 +4,7 @@
 
 ### מחלקות כרומופורים
 
-מספר מחלקות של פיגמנטים תזונתיים ידועות כמשפיעות על צבע הצואה: \textenglish{betalains}, \textenglish{anthocyanins}, \textenglish{chlorophylls}, \textenglish{carotenoids} וצבעי \textenglish{azo}. לכל מחלקה תכונות כימיות נבדלות הקובעות את יכולתה לשרוד את המעבר במעי ולהקנות צבע לצואה.
+מספר מחלקות של פיגמנטים תזונתיים ידועות כמשפיעות על צבע הצואה: \textenglish{betalains}, \textenglish{anthocyanins}, \textenglish{chlorophylls}, \textenglish{carotenoids} וצבעי \textenglish{azo}. לכל מחלקה תכונות כימיות נבדלות הקובעות את יכולתה לשרוד את המעבר במעי ולהקנות צבע לצואה (ראו איור~\ref{fig:F10}).
 
 [[FIGURE:F10|צביעה צואתית ייצוגית על פני פיגמנטים תזונתיים שונים.]]
 
