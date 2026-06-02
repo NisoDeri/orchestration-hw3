@@ -6,11 +6,12 @@
 % --- Fonts & languages (LuaLaTeX + polyglossia handle BiDi natively) ---
 \usepackage{fontspec}
 \usepackage{polyglossia}
-\setdefaultlanguage{english}
-\setotherlanguage{hebrew}
-\setmainfont{Latin Modern Roman}
-% Hebrew uses a font present on Windows; swap here if unavailable on the host.
+\setdefaultlanguage{hebrew}
+\setotherlanguage{english}
+% Hebrew is the main (RTL) language: David covers Hebrew; Latin Modern for English terms.
+\setmainfont{David}
 \newfontfamily\hebrewfont[Script=Hebrew]{David}
+\newfontfamily\englishfont{Latin Modern Roman}
 
 % --- Math, graphics, tables, diagrams ---
 \usepackage{amsmath,amssymb,mathtools}
@@ -26,8 +27,8 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small Chromatic Excretion}
-\fancyhead[R]{\small J. Appl. Gastrointest. Chromatics}
+\fancyhead[R]{\small הקשת שבקצה המעי}
+\fancyhead[L]{\small\englishfont J. Appl. Gastrointest. Chromatics}
 \fancyfoot[C]{\thepage}
 
 % --- Bibliography (biber backend; numeric clickable citations) ---
@@ -49,20 +50,20 @@
 \begin{titlepage}
 \centering
 \vspace*{2cm}
-{\Huge\bfseries Chromatic Excretion\par}
+{\Huge\bfseries הקשת שבקצה המעי\par}
 \vspace{0.6cm}
-{\large A Multi-Parameter Pharmacokinetic and Colorimetric Analysis of\\
-Dietary Pigment Transit and Faecal Chromatics in the Human Gastrointestinal Tract\par}
+{\large ניתוח רב-משתני פרמקוקינטי וקולורימטרי של כרומטיקה צואתית\\
+במערכת העיכול האנושית\par}
 \vspace{0.8cm}
-{\large\itshape Journal of Applied Gastrointestinal Chromatics — Vol.~1, No.~1\par}
-\vspace{1.5cm}
-{\large Nissim Deri \quad\textbullet\quad Yarden Tziar\par}
-\vspace{0.8cm}
-{\Large\texthebrew{הפרשה כרומטית}\par}
+{\large\itshape כתב העת ליישומי כרומטיקה במערכת העיכול — כרך 1, גיליון 1\par}
+\vspace{1.2cm}
+{\large ניסים דרעי \quad\textbullet\quad ירדן ציאר\par}
+\vspace{0.6cm}
+{\large\englishfont\itshape Chromatic Excretion\par}
 \vfill
-{203.3763 — Orchestration of AI Agents\\
-Instructor: Dr.~Yoram Segal \\
-University of Haifa \\
+{203.3763 — אורקסטרציה של סוכני \textenglish{AI}\\
+מרצה: ד״ר יורם סגל\\
+אוניברסיטת חיפה\\
 \today\par}
 \end{titlepage}
 
