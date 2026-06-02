@@ -16,6 +16,13 @@
       "slots": [{"kind": "figure", "name": "F1", "spec": "Photograph/illustration of raw and cooked beetroot (betacyanin source)."}, {"kind": "citation", "name": "beeturia", "spec": ""}]
     },
     {
+      "id": "related_work", "title_en": "Related Work", "title_he": "סקירת ספרות",
+      "language": "he", "target_words": 700,
+      "purpose": "Hebrew literature review of prior work on faecal chromatics, beeturia, colorimetry, and stool assessment.",
+      "key_points": ["beeturia history and prevalence", "betalain chemistry", "CIE colorimetry and CIEDE2000", "Bristol Stool Scale origins", "pharmacokinetic modelling", "smart-toilet / wearable colorimetry"],
+      "slots": [{"kind": "citation", "name": "beeturia", "spec": ""}]
+    },
+    {
       "id": "background", "title_en": "Background: Pigment Chemistry", "title_he": "רקע: כימיה של פיגמנטים",
       "language": "he", "target_words": 700,
       "purpose": "Survey chromophores responsible for FAECAL coloration and how they survive gut transit to reach the stool.",
@@ -84,6 +91,20 @@
       "purpose": "Interpret stool results in Hebrew; connect to the model.",
       "key_points": ["predicted t_max vs observed faecal peak", "limitations: inter-individual k_a, faecal pH, microbiome", "stool pigmentation is benign"],
       "slots": [{"kind": "formula", "name": "LOGISTIC", "spec": "P(visible)=1/(1+e^-(b0+b1*dose)); threshold dose at P=0.5"}]
+    },
+    {
+      "id": "limitations", "title_en": "Limitations", "title_he": "מגבלות",
+      "language": "he", "target_words": 550,
+      "purpose": "Hebrew discussion of study limitations and threats to validity.",
+      "key_points": ["modeled/synthetic data", "sample size", "single-pigment focus", "inter-individual k_a variability", "pH and microbiome confounders", "measurement reliability", "generalizability"],
+      "slots": [{"kind": "formula", "name": "none", "spec": ""}]
+    },
+    {
+      "id": "clinical_applications", "title_en": "Clinical Applications", "title_he": "יישומים קליניים",
+      "language": "he", "target_words": 600,
+      "purpose": "Hebrew section on clinical and practical applications of the multi-parameter faecal framework.",
+      "key_points": ["non-invasive diagnostics", "dietary-adherence monitoring", "smart-toilet integration", "FCI-based screening", "personalized nutrition"],
+      "slots": [{"kind": "citation", "name": "jagc2026", "spec": ""}]
     },
     {
       "id": "implications", "title_en": "Conclusions and Implications", "title_he": "מסקנות והשלכות",

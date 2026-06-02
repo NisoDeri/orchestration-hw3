@@ -6,6 +6,8 @@
 
 מספר מחלקות של פיגמנטים תזונתיים ידועות כמשפיעות על צבע הצואה: \textenglish{betalains}, \textenglish{anthocyanins}, \textenglish{chlorophylls}, \textenglish{carotenoids} וצבעי \textenglish{azo}. לכל מחלקה תכונות כימיות נבדלות הקובעות את יכולתה לשרוד את המעבר במעי ולהקנות צבע לצואה.
 
+[[FIGURE:F10|צביעה צואתית ייצוגית על פני פיגמנטים תזונתיים שונים.]]
+
 **\textenglish{Betalains}.** ה-\textenglish{betalains}, המצויים בעיקר בסלק (\textenglish{Beta vulgaris}) ובצמחים נוספים מסדרת ה-\textenglish{Caryophyllales}, הם תרכובות נגזרות-אינדול המאופיינות ב-\textenglish{betacyanins} אדומים-סגולים וב-\textenglish{betaxanthins} צהובים. ה-\textenglish{betacyanin} הנפוץ ביותר הוא ה-\textenglish{betanin}, המגלה יציבות פוטוכימית גבוהה אך יציבות תרמית בינונית. מבנהו הכימי הייחודי מאפשר לו לעמוד בפני פירוק אנזימטי במערכת העיכול, ולכן הוא שורד אל הצואה ומקנה לה צביעה אדומה אופיינית.
 
 **\textenglish{Anthocyanins}.** ה-\textenglish{anthocyanins} הם פיגמנטים ואקואולריים מסיסים במים האחראים לצבעים הכחולים, הסגולים והאדומים של פירות ופרחים. הם גליקוזידים של מולקולות \textenglish{anthocyanidin} בעלות מבנה כרומופורי בסיסי. ה-\textenglish{anthocyanins} מגלים יציבות משתנה בסביבות חומציות אך שורדים בדרך כלל את המעבר במעי בזכות עמידותם לאנזימים חיידקיים, ולכן תורמים לצביעת הצואה — בייחוד לאחר צריכת פירות יער.
