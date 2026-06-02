@@ -1,0 +1,46 @@
+[project]
+name = "chromatic-crew"
+version = "1.0.0"
+description = "A CrewAI multi-agent system that authors a BiDi (Hebrew/English) LaTeX article."
+requires-python = ">=3.11"
+dependencies = [
+    "crewai>=1.14.6",
+    "litellm>=1.87.0",
+    "matplotlib>=3.10.9",
+    "python-dotenv>=1.2.2",
+]
+
+[dependency-groups]
+dev = [
+    "pymupdf>=1.27.2.3",
+    "pytest>=9.0.3",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.15.15",
+]
+
+[tool.uv]
+# Do not install this project as an editable package: the project path contains
+# non-ASCII (Hebrew) characters, and the editable .pth file then breaks Python's
+# `site` init under the cp1252 locale codec. Tests import via pytest `pythonpath`,
+# and the CLI is run with PYTHONPATH=src — neither needs an editable install.
+package = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4", "SIM"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "--cov=chromatic_crew --cov-report=term-missing --cov-fail-under=85"
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["*/cli/*", "*/__main__.py", "*/orchestration/crew_run.py"]
+
+[tool.coverage.report]
+fail_under = 85

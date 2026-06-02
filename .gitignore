@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+
+# Env / secrets
+.env
+
+# Outputs / generated
+output/
+content/generated/
+assets/generated/
+
+# QA / run logs (keep the repo clean; the PDF + content are committed)
+logs/
+
+# LaTeX aux
+*.aux
+*.log
+*.bbl
+*.bcf
+*.blg
+*.out
+*.toc
+*.run.xml
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+
+# Tooling
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
