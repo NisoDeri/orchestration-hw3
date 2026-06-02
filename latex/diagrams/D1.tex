@@ -1,0 +1,15 @@
+\begin{tikzpicture}[node distance=2cm, auto]
+    \tikzstyle{every node}=[rounded rectangle, draw, minimum height=1.5em, thick, inner sep=3pt]
+    \tikzstyle{every path}=[-{Stealth}, thick]
+
+    \node (ingestion) {Ingestion};
+    \node [right of=ingestion] (stomach) {Stomach};
+    \node [right of=stomach] (small_intestine) {Small intestine};
+    \node [right of=small_intestine] (colon) {Colon};
+    \node [below right=1cm and 0cm of colon.south east, anchor=north west] (stool) {Stool};
+
+    \path (ingestion) edge node[above] {$k_1$} (stomach)
+          (stomach) edge node[above] {$k_2$} (small_intestine)
+          (small_intestine) edge node[above] {$k_3$} (colon)
+          (colon) edge node[right] {$k_4$} (stool);
+\end{tikzpicture}

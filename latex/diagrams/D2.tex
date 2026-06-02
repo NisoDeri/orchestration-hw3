@@ -1,0 +1,9 @@
+\begin{tikzpicture}[node distance=2cm, auto]
+    \node [rectangle, draw, rounded corners, thick, minimum height=1.5cm, text width=3cm] (sample) {Sample};
+    \node [rectangle, draw, rounded corners, thick, below of=sample, yshift=-0.5cm, minimum height=2cm, text width=4cm] (pipette) {Pipette};
+    \node [rectangle, draw, rounded corners, thick, right of=pipette, xshift=3cm, minimum height=1.5cm, text width=3cm] (spectrophotometer) {Spectrophotometer};
+    
+    % Arrows
+    \draw [-{Stealth}, thick] (sample.south) -- ++(0,-0.5) -| (pipette.north);
+    \draw [-{StealTh}, thick] (pipette.east) -- ++(1,0) |- (spectrophotometer.west);
+\end{tikzpicture}
