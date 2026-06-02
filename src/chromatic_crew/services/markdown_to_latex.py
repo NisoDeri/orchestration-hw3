@@ -49,7 +49,7 @@ def _table(block: list[str]) -> str:
 def _figure(name: str, caption: str) -> str:
     return (
         "\\begin{figure}[h]\\centering\n"
-        f"\\includegraphics[width=0.8\\textwidth]{{../assets/{name}.png}}\n"
+        f"\\includegraphics[width=0.9\\textwidth]{{../assets/{name}.png}}\n"
         f"\\caption{{{_wrap_he(_inline(caption))}}}\n\\end{{figure}}"
     )
 
