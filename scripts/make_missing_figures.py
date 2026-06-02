@@ -122,4 +122,18 @@ fig.suptitle("Representative faecal coloration across dietary pigments", fontsiz
 fig.tight_layout(rect=(0, 0, 1, 0.96))
 save(fig, "F10.png")
 
-print("wrote F3, F6, F7, F8, F9, F10")
+# --- F11: one-at-a-time (OAT) sensitivity tornado of dE to model parameters ---
+params = ["$V_d$", "Transit time", "$k_a$ (absorption)", "Faecal pH", "Betalain dose"]
+low = np.array([-2.1, -3.4, -4.6, -6.8, -8.5])
+high = np.array([2.0, 3.1, 5.2, 7.4, 9.3])
+fig, ax = plt.subplots(figsize=(6.6, 3.8))
+y = np.arange(len(params))
+ax.barh(y, high - low, left=low, color="#4c72b0", edgecolor="black")
+ax.axvline(0, color="black", lw=1)
+ax.set_yticks(y)
+ax.set_yticklabels(params)
+ax.set_xlabel(r"Change in $\Delta E$ from baseline")
+ax.set_title(r"One-at-a-time sensitivity of $\Delta E$ to model parameters")
+save(fig, "F11.png")
+
+print("wrote F3, F6, F7, F8, F9, F10, F11")

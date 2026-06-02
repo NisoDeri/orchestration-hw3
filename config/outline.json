@@ -65,6 +65,13 @@
       "slots": [{"kind": "formula", "name": "FCI", "spec": "FCI = w1*Ehat + w2*Bhat + w3*pHhat + w4*That with normalized components, weights summing to 1"}, {"kind": "table", "name": "T4", "spec": "Component | Symbol | Range | Weight | Rationale"}]
     },
     {
+      "id": "sensitivity", "title_en": "Sensitivity Analysis", "title_he": "ניתוח רגישות",
+      "language": "he", "target_words": 550,
+      "purpose": "Hebrew one-at-a-time (OAT) sensitivity analysis of the model output to its parameters.",
+      "key_points": ["OAT methodology", "dose and faecal pH dominate dE", "k_a has moderate effect", "transit and V_d are minor", "implications for measurement priorities"],
+      "slots": [{"kind": "figure", "name": "F11", "spec": "Tornado plot: OAT sensitivity of dE to dose, pH, k_a, transit, V_d"}]
+    },
+    {
       "id": "methodology", "title_en": "Methodology", "title_he": "שיטות",
       "language": "he", "target_words": 750,
       "purpose": "Experimental protocol IN HEBREW: STOOL (not urine) sampling and multi-parameter measurement. Primary BiDi chapter.",
