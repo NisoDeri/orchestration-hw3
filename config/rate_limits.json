@@ -1,0 +1,12 @@
+{
+  "version": "1.00",
+  "services": {
+    "default": { "requests_per_minute": 60, "concurrent_max": 2, "retry_after_seconds": 10, "max_retries": 3 },
+    "ollama":  { "requests_per_minute": 120, "concurrent_max": 1, "retry_after_seconds": 5, "max_retries": 3 }
+  },
+  "cost": {
+    "track": true,
+    "max_cost_usd_per_run": 5.0,
+    "note": "Local Ollama runs cost $0; the cap only guards optional cloud (Anthropic) use. Wall-clock effort is always tracked."
+  }
+}

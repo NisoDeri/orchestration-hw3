@@ -1,0 +1,20 @@
+{
+  "version": "1.00",
+  "provider": "ollama",
+  "ollama_base_url": "http://localhost:11434",
+  "hebrew_strategy": "editor",
+  "agents": {
+    "planner":    { "model": "ollama/qwen2.5:14b",      "temperature": 0.2 },
+    "writer":     { "model": "ollama/qwen2.5:14b",      "temperature": 0.6 },
+    "figure":     { "model": "ollama/qwen2.5:14b",      "temperature": 0.1 },
+    "tikz":       { "model": "ollama/qwen2.5:14b",      "temperature": 0.1 },
+    "translator": { "model": "ollama/qwen2.5:14b",      "temperature": 0.2 },
+    "assembler":  { "model": "ollama/qwen2.5:7b",       "temperature": 0.0 },
+    "qa":         { "model": "ollama/qwen2.5:14b",      "temperature": 0.0 }
+  },
+  "anthropic_optional": {
+    "note": "Unused by default (no API key). To enable: set provider='anthropic', set ANTHROPIC_API_KEY in .env, and these models apply.",
+    "default_model": "claude-sonnet-4-6",
+    "translator_model": "claude-sonnet-4-6"
+  }
+}

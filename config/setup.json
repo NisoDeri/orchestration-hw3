@@ -1,0 +1,24 @@
+{
+  "version": "1.00",
+  "project": "chromatic-crew",
+  "topic_en": "Chromatic Excretion: A Multi-Parameter Pharmacokinetic and Colorimetric Analysis of Dietary Pigment Transit and Faecal Chromatics in the Human Gastrointestinal Tract",
+  "topic_he": "הפרשה כרומטית: ניתוח רב-משתני פרמקוקינטי וקולורימטרי של מעבר פיגמנטים תזונתיים וכרומטיקה של צואה במערכת העיכול האנושית",
+  "venue": "Journal of Applied Gastrointestinal Chromatics, Vol. 1, No. 1",
+  "authors": ["Nissim Deri", "Yarden Tziar"],
+  "course": "203.3763 Orchestration of AI Agents",
+  "instructor": "Dr. Yoram Segal",
+  "page_target": 20,
+  "language_split": {
+    "hebrew_fraction": 0.5,
+    "hebrew_sections": ["methodology", "results", "multivariate", "discussion", "implications"],
+    "bilingual_sections": ["abstract", "conclusion"]
+  },
+  "paths": {
+    "blueprint": "docs/BLUEPRINT.md",
+    "content": "content",
+    "assets": "assets",
+    "latex": "latex",
+    "output": "output"
+  },
+  "seed": 42
+}

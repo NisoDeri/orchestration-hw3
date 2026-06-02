@@ -1,0 +1,103 @@
+{
+  "version": "1.00",
+  "sections": [
+    {
+      "id": "abstract", "title_en": "Abstract", "title_he": "תקציר",
+      "language": "he", "target_words": 150,
+      "purpose": "One-paragraph English summary mirrored in Hebrew; first BiDi showcase. Subject is FAECAL (stool) chromatics and multi-parameter stool analysis, NOT urine.",
+      "key_points": ["dietary pigments alter STOOL colour and other faecal parameters", "unified pharmacokinetic + colorimetric model for faecal pigment", "multi-parameter Faecal Chromatics Index (colour, consistency, pH, transit)", "headline modeled finding about stool"],
+      "slots": [{"kind": "formula", "name": "none", "spec": ""}]
+    },
+    {
+      "id": "introduction", "title_en": "Introduction", "title_he": "מבוא",
+      "language": "he", "target_words": 750,
+      "purpose": "Motivate stool as a non-invasive diagnostic medium; dietary pigments visibly alter STOOL.",
+      "key_points": ["stool colour/consistency are everyday clinical signals", "dietary pigments (beetroot betalains) visibly tint the STOOL/faeces", "current assessment is qualitative; we build a quantitative multi-parameter framework", "scope: faecal colour, consistency, pH, transit; contributions list"],
+      "slots": [{"kind": "figure", "name": "F1", "spec": "Photograph/illustration of raw and cooked beetroot (betacyanin source)."}, {"kind": "citation", "name": "beeturia", "spec": ""}]
+    },
+    {
+      "id": "background", "title_en": "Background: Pigment Chemistry", "title_he": "רקע: כימיה של פיגמנטים",
+      "language": "he", "target_words": 700,
+      "purpose": "Survey chromophores responsible for FAECAL coloration and how they survive gut transit to reach the stool.",
+      "key_points": ["betalains/anthocyanins/chlorophyll/carotenoids/azo dyes", "pH stability of betanin in the colon", "why pigments survive to colour the stool"],
+      "slots": [{"kind": "table", "name": "T1", "spec": "Food | Pigment class | Chromophore | Stool coloration | Onset(h) | Duration(h) | pH stability"}]
+    },
+    {
+      "id": "stool_parameters", "title_en": "Stool Parameters and the Bristol Stool Scale", "title_he": "פרמטרים של צואה וסולם בריסטול",
+      "language": "he", "target_words": 700,
+      "purpose": "Introduce the multi-dimensional characterization of stool BEYOND colour: consistency (Bristol Stool Scale types 1-7), faecal pH, moisture, transit, frequency.",
+      "key_points": ["Bristol Stool Scale: 7 consistency types and their transit meaning", "faecal pH range and determinants", "stool moisture/water content", "why colour alone is insufficient; need multi-parameter view"],
+      "slots": [{"kind": "table", "name": "T3", "spec": "Bristol type | Description | Typical transit | Water content (%)"}, {"kind": "figure", "name": "F7", "spec": "Bristol Stool Scale chart: 7 consistency types along a transit-time axis (stylized bars, NOT a photo)."}]
+    },
+    {
+      "id": "model", "title_en": "A Pharmacokinetic Model of Luminal Pigment Transit", "title_he": "מודל פרמקוקינטי",
+      "language": "he", "target_words": 800,
+      "purpose": "Mathematical heart: first-order absorption-elimination model of pigment in the gut leading to faecal output.",
+      "key_points": ["mass-balance ODE", "closed-form C(t)", "derive t_max", "Beer-Lambert links concentration to faecal colour", "Fick diffusion across the colonic wall"],
+      "slots": [{"kind": "formula", "name": "PK_ODE", "spec": "dC/dt and closed-form C(t); t_max"}, {"kind": "formula", "name": "BEER_LAMBERT", "spec": "A = eps*c*l"}, {"kind": "formula", "name": "FICK", "spec": "J = -D dphi/dx"}, {"kind": "diagram", "name": "D1", "spec": "GI transit pipeline: Ingestion->Stomach->Small intestine->Colon->Stool with rate constants"}, {"kind": "figure", "name": "F2", "spec": "C(t) curves for betanin vs anthocyanin vs azo-dye; annotate t_max"}]
+    },
+    {
+      "id": "colorimetry", "title_en": "Colorimetric Quantification of Stool", "title_he": "כימות קולורימטרי של צואה",
+      "language": "he", "target_words": 700,
+      "purpose": "Define objective measurement of the faecal chromatic shift via CIELAB and CIEDE2000.",
+      "key_points": ["CIELAB L*a*b* of stool samples", "CIEDE2000 delta-E showpiece formula", "measurement methods for faecal colour"],
+      "slots": [{"kind": "formula", "name": "CIEDE2000", "spec": "delta-E_00 with dL'/dC'/dH', S_L,S_C,S_H, R_T"}, {"kind": "figure", "name": "F3", "spec": "CIELAB a* colour-reference chart for faecal coloration grading (swatches, NOT a stool photo)"}, {"kind": "diagram", "name": "D2", "spec": "Spectrophotometric faecal sampling apparatus schematic"}, {"kind": "table", "name": "T2", "spec": "Method | quantitative? | cost | inter-rater reliability"}]
+    },
+    {
+      "id": "ph_stability", "title_en": "Faecal pH and Pigment Stability", "title_he": "חומציות הצואה ויציבות הפיגמנט",
+      "language": "he", "target_words": 650,
+      "purpose": "Model how colonic/faecal pH governs betalain colour retention in the stool.",
+      "key_points": ["betanin is pH-sensitive; colonic pH 5.5-7.5", "Henderson-Hasselbalch-style relation for protonation state vs colour", "lower faecal pH -> stronger red retention", "implications for diet/microbiome"],
+      "slots": [{"kind": "formula", "name": "PH_COLOUR", "spec": "Henderson-Hasselbalch: pH = pKa + log10([A-]/[HA]); link to a* intensity"}, {"kind": "figure", "name": "F8", "spec": "Faecal pH vs CIEDE2000 a* retention (scatter+fit) showing stronger red at lower pH"}]
+    },
+    {
+      "id": "chromatics_index", "title_en": "A Multi-Parameter Faecal Chromatics Index", "title_he": "מדד כרומטי רב-משתני לצואה",
+      "language": "he", "target_words": 650,
+      "purpose": "Combine colour, consistency, pH, and transit into a single Faecal Chromatics Index (FCI).",
+      "key_points": ["motivation: colour alone misses consistency/pH/transit", "weighted index FCI definition", "normalization of each component", "interpretation ranges"],
+      "slots": [{"kind": "formula", "name": "FCI", "spec": "FCI = w1*Ehat + w2*Bhat + w3*pHhat + w4*That with normalized components, weights summing to 1"}, {"kind": "table", "name": "T4", "spec": "Component | Symbol | Range | Weight | Rationale"}]
+    },
+    {
+      "id": "methodology", "title_en": "Methodology", "title_he": "שיטות",
+      "language": "he", "target_words": 750,
+      "purpose": "Experimental protocol IN HEBREW: STOOL (not urine) sampling and multi-parameter measurement. Primary BiDi chapter.",
+      "key_points": ["cohort", "controlled betanin dosing (D mg)", "STOOL sample collection at t=0,12,24,48,72h", "measure colour (CIEDE2000), Bristol type, faecal pH, transit", "statistical plan"],
+      "slots": [{"kind": "bidi", "name": "terms", "spec": "keep CIEDE2000, baseline, pharmacokinetic, Bristol Stool Scale, pH in Latin script"}]
+    },
+    {
+      "id": "results", "title_en": "Results", "title_he": "תוצאות",
+      "language": "he", "target_words": 750,
+      "purpose": "Present modeled multi-parameter STOOL findings in Hebrew; reference figures by number.",
+      "key_points": ["faecal colour prevalence by subgroup", "delta-E vs dose sigmoid for stool", "transit-time and Bristol-type distribution", "faecal pH effect", "report mean +/- SD, p-values"],
+      "slots": [{"kind": "figure", "name": "F4", "spec": "Faecal pigmentation prevalence by subgroup (bar)"}, {"kind": "figure", "name": "F5", "spec": "delta-E_00 vs beetroot dose sigmoid for stool"}, {"kind": "figure", "name": "F6", "spec": "Transit-time histogram for faecal pigment"}]
+    },
+    {
+      "id": "multivariate", "title_en": "Multivariate Analysis", "title_he": "ניתוח רב-משתני",
+      "language": "he", "target_words": 550,
+      "purpose": "Hebrew section on correlations among the stool measures (colour, consistency, pH, transit) and the FCI.",
+      "key_points": ["correlation matrix among faecal parameters", "colour-consistency and pH-colour correlations", "FCI as a summary; principal components note"],
+      "slots": [{"kind": "figure", "name": "F9", "spec": "Correlation heatmap among faecal parameters (deltaE, Bristol, pH, transit, FCI)"}]
+    },
+    {
+      "id": "discussion", "title_en": "Discussion", "title_he": "דיון",
+      "language": "he", "target_words": 600,
+      "purpose": "Interpret stool results in Hebrew; connect to the model.",
+      "key_points": ["predicted t_max vs observed faecal peak", "limitations: inter-individual k_a, faecal pH, microbiome", "stool pigmentation is benign"],
+      "slots": [{"kind": "formula", "name": "LOGISTIC", "spec": "P(visible)=1/(1+e^-(b0+b1*dose)); threshold dose at P=0.5"}]
+    },
+    {
+      "id": "implications", "title_en": "Conclusions and Implications", "title_he": "מסקנות והשלכות",
+      "language": "he", "target_words": 450,
+      "purpose": "Future work in Hebrew, deadpan grant-proposal voice.",
+      "key_points": ["smart-toilet real-time faecal colorimetry", "multi-pigment superposition models", "ML classifier for dietary reconstruction from stool"],
+      "slots": [{"kind": "citation", "name": "jagc2026", "spec": ""}]
+    },
+    {
+      "id": "conclusion", "title_en": "Conclusion", "title_he": "סיכום",
+      "language": "he", "target_words": 180,
+      "purpose": "Short EN paragraph + Hebrew mirror about faecal chromatics; final BiDi showcase.",
+      "key_points": ["restate the multi-parameter faecal contribution", "headline number"],
+      "slots": [{"kind": "formula", "name": "none", "spec": ""}]
+    }
+  ]
+}
