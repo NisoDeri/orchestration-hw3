@@ -16,7 +16,7 @@
 
 ### מדידת פרמטרים
 
-לכל דגימה נמדדו ארבעה פרמטרים: (1) **צבע** — ניתוח \textenglish{CIEDE2000} באמצעות ספקטרופוטומטר; (2) **מרקם** — סיווג לפי \textenglish{Bristol Stool Scale} (טיפוסים 1--7); (3) **חומציות** — מדידת \textenglish{pH} במד-\textenglish{pH} נייד; (4) **זמן מעבר** — הערכה בשיטת סמנים (\textenglish{markers}).
+לכל דגימה נמדדו ארבעה פרמטרים: (1) **צבע** — ניתוח \textenglish{CIEDE2000} באמצעות ספקטרופוטומטר; (2) **מרקם** — סיווג לפי \textenglish{Bristol Stool Scale} (טיפוסים 1--7); (3) **חומציות** — מדידת \textenglish{pH} במד-\textenglish{pH} נייד; (4) **זמן מעבר** — הערכה בשיטת סמנים (\textenglish{markers}) \cite{cummings1976, metcalf1987}.
 
 ### תוכנית סטטיסטית
 

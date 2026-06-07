@@ -52,3 +52,18 @@ guidelines value visible, AI-assisted iteration — not a polished result with n
     **faecal chromatics**. Re-anchored the blueprint/brief on STOOL, added measures beyond colour
     (Bristol Stool Scale consistency, faecal pH, transit, a Faecal Chromatics Index), and expanded
     from 10 → 14 sections (~12 → ~21 pages).
+
+## Bibliography integrity
+15. **`\nocite{*}` masked uncited and fabricated references.** The bibliography printed all 21
+    entries, but only 6 were actually `\cite`d in the text — and a verification pass (web search,
+    every entry) found **two fabricated** sources (`sharma2009`, `tian2021` — plausible titles
+    pinned to real authors/journals but no such paper exists) plus detail errors in four others
+    (`macfarlane2003` had an invented subtitle; `mokrzycki2011` wrong end page; `clarke2014` wrong
+    year — 2014 vs the real 2012; truncated titles). **Fix:** deleted the two fabricated entries,
+    corrected the four, restored full titles, added verified DOIs to 16 entries, removed
+    `\nocite{*}`, and added a genuine in-text `\cite` for every remaining source → **19 entries,
+    all cited, 1:1, zero undefined citations.**
+16. **English bibliography mirrored inside the RTL document.** With Hebrew as the base direction,
+    the all-English reference lines had their elements reversed ("DOI"/URL landing at the wrong
+    end). **Fix:** wrapped `\printbibliography` in an `english` (LTR) environment while keeping the
+    Hebrew title via `\texthebrew{}` — entries now read left-to-right with clickable DOI links.
