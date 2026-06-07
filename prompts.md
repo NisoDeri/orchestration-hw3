@@ -17,14 +17,20 @@ produce on-spec, publication-form output.
    seriousness, precise terminology, scientific hedging, Markdown + `$...$` math, and
    an explicit ban on inventing structure. The comedy must come only from rigorous
    treatment of an absurd subject — so the prose must never wink.
-2. **English-first, then translate.** Even the ~50% Hebrew sections are drafted in
-   English (the model's strongest language), then rendered to Hebrew by the Translator
-   agent, then verified by the authors. This maximizes both content and Hebrew quality.
+2. **English-first; Hebrew authored by the editor.** Every section is drafted in
+   English by the crew (the local model's strongest language). The local models proved
+   unreliable at Hebrew (repetition, Chinese/Arabic script leakage — see `docs/DEVLOG.md`
+   #5), so we set `hebrew_strategy="editor"`: the **editor (authors / Claude) authored
+   the Hebrew**, not the local translator agent. The Translator agent is retained in the
+   architecture as the documented **upgrade path** (`hebrew_strategy="agent"` on a capable
+   model). Shipping editor-authored Hebrew rather than broken local-model output was the
+   correct engineering call for this documented limitation.
 3. **Slot-marker protocol.** The Writer leaves `[[FIGURE:NAME|caption]]`,
    `[[DIAGRAM:NAME|caption]]`, `[[CITE:key]]` markers; downstream agents/converters
    fill them. This decouples prose from figure/diagram/citation generation.
-4. **BiDi instruction.** The Translator wraps Latin technical terms as
-   `\textenglish{...}` and preserves numbers/units, so RTL/LTR mixing renders cleanly.
+4. **BiDi handling.** Latin technical terms are wrapped as `\textenglish{...}` and
+   table cells are forced LTR (by the editor and the deterministic Markdown→LaTeX
+   converter), preserving numbers/units so RTL/LTR mixing renders cleanly.
 5. **Per-agent models** (`config/models.json`): low temperature for QA/assembler,
    higher for the Writer; the Translator can be upgraded to Claude independently.
 
@@ -37,6 +43,8 @@ produce on-spec, publication-form output.
   Python files (HW2 was flagged for 200-line data modules).
 
 ## AI-use disclosure
-A CrewAI agent team running on local Ollama generates the drafts, figures, and TikZ;
-the authors act as architect and editor (planning, prompt design, Hebrew verification,
-and final editorial pass). Responsibility for the submission rests with the authors.
+A CrewAI agent team running on local Ollama generates the **English** drafts, figures,
+and TikZ. Because local models cannot produce reliable Hebrew, the **authors/editor
+authored the Hebrew** and did the planning, prompt design, and final editorial pass;
+the Translator agent is the documented upgrade path (`hebrew_strategy="agent"`).
+Responsibility for the submission rests with the authors.

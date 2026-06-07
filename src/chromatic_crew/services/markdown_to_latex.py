@@ -31,20 +31,26 @@ def _wrap_he(text: str) -> str:
     return f"\\texthebrew{{{text}}}" if _HEB.search(text) else text
 
 
+def _cell(text: str) -> str:
+    """Force a table cell LTR so English ranges (e.g. 12--24) and tokens (Var.) keep
+    their order inside the RTL document — otherwise polyglossia bidi reverses them."""
+    return f"\\textenglish{{{_inline(text.strip())}}}"
+
+
 def _table(block: list[str]) -> str:
     rows = [r.strip().strip("|").split("|") for r in block]
     header, body = rows[0], rows[2:]
     ncol = len(header)
     out = [
         "\\begin{table}[h]\\centering\\small",
-        "\\setlength{\\tabcolsep}{4pt}",
+        "\\setlength{\\tabcolsep}{3pt}",
         "\\begin{tabular}{" + "l" * ncol + "}",
         "\\toprule",
     ]
-    out.append(" & ".join(_inline(c.strip()) for c in header) + r" \\")
+    out.append(" & ".join(_cell(c) for c in header) + r" \\")
     out.append("\\midrule")
     for r in body:
-        out.append(" & ".join(_inline(c.strip()) for c in r) + r" \\")
+        out.append(" & ".join(_cell(c) for c in r) + r" \\")
     out += ["\\bottomrule", "\\end{tabular}", "\\end{table}"]
     return "\n".join(out)
 

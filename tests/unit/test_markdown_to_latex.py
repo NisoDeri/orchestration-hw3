@@ -48,8 +48,9 @@ def test_table_conversion():
     md = "| A | B |\n| --- | --- |\n| 1 | 2 |"
     out = convert(md, {}, "en")
     assert "\\toprule" in out
-    assert "A & B" in out
-    assert "1 & 2" in out
+    # cells are forced LTR so English ranges don't reverse inside the RTL doc
+    assert "\\textenglish{A} & \\textenglish{B}" in out
+    assert "\\textenglish{1} & \\textenglish{2}" in out
 
 
 def test_hebrew_paragraph_wrapped():
