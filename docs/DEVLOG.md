@@ -67,3 +67,12 @@ guidelines value visible, AI-assisted iteration — not a polished result with n
     the all-English reference lines had their elements reversed ("DOI"/URL landing at the wrong
     end). **Fix:** wrapped `\printbibliography` in an `english` (LTR) environment while keeping the
     Hebrew title via `\texthebrew{}` — entries now read left-to-right with clickable DOI links.
+
+## Real specimen photos
+17. **Three real beeturia photos, portrait phone shots overflowed at the fixed figure width.** The
+    converter hard-coded `width=0.9\textwidth`; tall portrait photos then dominated a whole page.
+    **Fix:** added an optional third field to the figure marker — `[[FIGURE:NAME|caption|width]]`
+    (default `0.9`) — and a unit test. Placed the moderate specimen (F12) in the intro (first pages,
+    `0.6`), the vivid pink-water specimen (F13) in results (`0.5`), and a formed-stool specimen (F14)
+    in the stool-parameters chapter (`0.42`), each with an in-text `\ref`. Phone EXIF rotation fixed via
+    `PIL.ImageOps.exif_transpose` during JPEG→PNG conversion.

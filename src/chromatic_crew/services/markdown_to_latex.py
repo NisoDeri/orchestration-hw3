@@ -3,13 +3,16 @@ emits: headings, booktabs tables, figure/diagram/citation slot markers, inline
 emphasis, math passthrough, and BiDi Hebrew wrapping.
 
 Slot marker formats (the Writer is instructed to use these):
-  [[FIGURE:NAME|caption]]   [[DIAGRAM:NAME|caption]]   [[CITE:bibkey]]
+  [[FIGURE:NAME|caption]]   [[FIGURE:NAME|caption|width]]   [[DIAGRAM:NAME|caption]]   [[CITE:bibkey]]
+
+``width`` is an optional fraction of ``\textwidth`` (default 0.9); use a smaller
+value for tall portrait photos so they do not dominate a page.
 """
 
 import re
 
 _HEB = re.compile(r"[֐-׿]")
-_FIG = re.compile(r"\[\[FIGURE:([^\]|]+)(?:\|([^\]]*))?\]\]")
+_FIG = re.compile(r"\[\[FIGURE:([^\]|]+)(?:\|([^\]|]*))?(?:\|([^\]|]*))?\]\]")
 _DIAG = re.compile(r"\[\[DIAGRAM:([^\]|]+)(?:\|([^\]]*))?\]\]")
 _CITE = re.compile(r"\[\[CITE:([^\]]+)\]\]")
 
@@ -46,10 +49,10 @@ def _table(block: list[str]) -> str:
     return "\n".join(out)
 
 
-def _figure(name: str, caption: str) -> str:
+def _figure(name: str, caption: str, width: str = "0.9") -> str:
     return (
         "\\begin{figure}[h]\\centering\n"
-        f"\\includegraphics[width=0.9\\textwidth]{{../assets/{name}.png}}\n"
+        f"\\includegraphics[width={width}\\textwidth]{{../assets/{name}.png}}\n"
         f"\\caption{{{_wrap_he(_inline(caption))}}}\\label{{fig:{name}}}\n\\end{{figure}}"
     )
 
@@ -90,7 +93,8 @@ def convert(md: str, tikz_map: dict[str, str], language: str) -> str:
             # Markers may be inline within a sentence: emit the surrounding prose
             # (marker removed) AND the float, so the paragraph text is preserved.
             floats: list[str] = [
-                _figure(m.group(1), m.group(2) or m.group(1)) for m in _FIG.finditer(line)
+                _figure(m.group(1), m.group(2) or m.group(1), m.group(3) or "0.9")
+                for m in _FIG.finditer(line)
             ]
             floats += [
                 _diagram(tikz_map.get(m.group(1), ""), m.group(2) or m.group(1), m.group(1))

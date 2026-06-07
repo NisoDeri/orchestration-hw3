@@ -27,6 +27,17 @@ def test_figure_marker():
     assert "My caption" in out
 
 
+def test_figure_default_width():
+    out = convert("[[FIGURE:F2|cap]]", {}, "en")
+    assert "width=0.9\\textwidth" in out
+
+
+def test_figure_custom_width():
+    out = convert("[[FIGURE:F13|cap|0.5]]", {}, "en")
+    assert "width=0.5\\textwidth" in out
+    assert "../assets/F13.png" in out
+
+
 def test_diagram_marker_inlines_tikz():
     out = convert("[[DIAGRAM:D1|Flow]]", {"D1": "\\begin{tikzpicture}\\end{tikzpicture}"}, "en")
     assert "tikzpicture" in out
