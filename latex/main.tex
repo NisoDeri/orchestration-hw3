@@ -27,11 +27,14 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[R]{\small גוונים של עיכול}
+% Hebrew header/footer text is wrapped in \texthebrew so it keeps the Hebrew font + RTL
+% even on pages shipped inside an \english environment (e.g. the LTR bibliography) —
+% otherwise the Latin font (no Hebrew glyphs) would drop the credits on those pages.
+\fancyhead[R]{\small\texthebrew{גוונים של עיכול}}
 \fancyhead[L]{\small\englishfont J. Appl. Gastrointest. Chromatics}
 \fancyfoot[C]{\thepage}
-\fancyfoot[L]{\small {\englishfont\textcopyright}\,ניסים דרעי וירדן ציאר}
-\fancyfoot[R]{\small אורקסטרציה של סוכני \textenglish{AI} — ד״ר יורם סגל}
+\fancyfoot[L]{\small {\englishfont\textcopyright}\,\texthebrew{ניסים דרעי וירדן ציאר}}
+\fancyfoot[R]{\small\texthebrew{אורקסטרציה של סוכני \textenglish{AI} — ד״ר יורם סגל}}
 
 % --- Bibliography (biber backend; numeric clickable citations) ---
 \usepackage[backend=biber,style=numeric,sorting=none]{biblatex}
